@@ -6,6 +6,7 @@ use App\Models\Buku as ModelsBuku;
 use App\Models\DetailPeminjaman;
 use App\Models\Kategori;
 use App\Models\Peminjaman;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\DB;
 class Buku extends Component
 {
     use WithPagination;
+
+    public $tanggal_pinjam;
+
+    protected $rules = [
+        'tanggal_pinjam' => 'required|date|after_or_equal:today',
+    ];
+
     protected $paginationTheme = 'bootstrap';
 
     protected $listeners = ['pilihKategori', 'semuaKategori'];
@@ -45,14 +53,14 @@ class Buku extends Component
     {
         // user harus login
         if (auth()->user()) {
-            
+
             // role peminjam
             if (auth()->user()->hasRole('peminjam')) {
-               
+
                 $peminjaman_lama = DB::table('peminjaman')
                     ->join('detail_peminjaman', 'peminjaman.id', '=', 'detail_peminjaman.peminjaman_id')
                     ->where('peminjam_id', auth()->user()->id)
-                    ->where('status', '!=', 3)
+                    ->where('status', '!=', 2)
                     ->get();
 
                 // jumlah maksimal 2
@@ -65,7 +73,9 @@ class Buku extends Component
                         $peminjaman_baru = Peminjaman::create([
                             'kode_pinjam' => random_int(100000000, 999999999),
                             'peminjam_id' => auth()->user()->id,
-                            'status' => 0
+                            'status' => 1,
+                            'tanggal_pinjam' => Carbon::now(),
+                            'tanggal_kembali' => Carbon::now()->addDays(7)
                         ]);
 
                         DetailPeminjaman::create([
@@ -103,7 +113,7 @@ class Buku extends Component
             session()->flash('gagal', 'Anda harus login terlebih dahulu');
             redirect('/login');
         }
-        
+
     }
 
     public function updatingSearch()
@@ -131,7 +141,7 @@ class Buku extends Component
             }
             $title = 'Semua Buku';
         }
-        
+
         return view('livewire.peminjam.buku', compact('buku', 'title'));
     }
 

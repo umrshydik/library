@@ -34,11 +34,11 @@
                 <tr>
                     <th width="10%">No</th>
                     <th>Kode Pinjam</th>
+                    <th>Nama Peminjam</th>
                     <th>Buku</th>
                     <th>Lokasi</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
-                    <th>Denda</th>
                     <th>Status</th>
                    @if (!$selesai_dipinjam)
                         <th width="15%">Aksi</th>
@@ -50,6 +50,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$item->kode_pinjam}}</td>
+                        <td>{{$item->users->name}}</td>
                         <td>
                             <ul>
                                 @foreach ($item->detail_peminjaman as $detail_peminjaman)
@@ -66,7 +67,6 @@
                         </td>
                         <td>{{$item->tanggal_pinjam}}</td>
                         <td>{{$item->tanggal_kembali}}</td>
-                        <td>{{$item->denda}}</td>
                         <td>
                             @if ($item->status == 1)
                                 <span class="badge bg-indigo">Belum Dipinjam</span>

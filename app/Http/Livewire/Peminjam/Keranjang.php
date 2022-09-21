@@ -26,12 +26,12 @@ class Keranjang extends Component
             $detail_peminjaman->delete();
             session()->flash('sukses', 'Data berhasil dihapus');
             $this->emit('kurangiKeranjang');
-        }  
+        }
     }
 
     public function hapusMasal()
     {
-        $keranjang = Peminjaman::latest()->where('peminjam_id', auth()->user()->id)->where('status', '!=', 3)->first();
+        $keranjang = Peminjaman::latest()->where('peminjam_id', auth()->user()->id)->where('status', '!=', 2)->first();
         foreach ($keranjang->detail_peminjaman as $detail_peminjaman) {
             $detail_peminjaman->delete();
         }
@@ -46,8 +46,8 @@ class Keranjang extends Component
 
         $keranjang->update([
             'status' => 1,
-            'tanggal_pinjam' => $this->tanggal_pinjam,
-            'tanggal_kembali' => Carbon::create($this->tanggal_pinjam)->addDays(10)
+            'tanggal_pinjam' => $this->created_at,
+            'tanggal_kembali' => Carbon::create($this->tanggal_pinjam)->addDays(7)
         ]);
 
         session()->flash('sukses', 'Buku berhasil dipinjam');
@@ -56,9 +56,9 @@ class Keranjang extends Component
     public function render()
     {
         $keranjang = Peminjaman::latest()->where('peminjam_id', auth()->user()->id)->where('status', '!=', 3)->first();
-        if (!$keranjang) {
-            redirect('/');
-        }
+        // if (!$keranjang) {
+        //     redirect('/');
+        // }
         return view('livewire.peminjam.keranjang', [
             'keranjang' => $keranjang
         ]);

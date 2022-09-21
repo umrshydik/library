@@ -24,22 +24,27 @@ class Peminjaman extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'peminjam_id', 'id');
+    }
+
     // accesor
     public function getDendaAttribute($value)
     {
         return $value ? "Rp. {$value}" : '-' ;
     }
-   
+
     public function getTanggalPinjamAttribute($value)
     {
         return Carbon::create($value)->format('d-M-Y');
     }
-   
+
     public function getTanggalKembaliAttribute($value)
     {
         return Carbon::create($value)->format('d-M-Y');
     }
-   
+
     public function getTanggalPengembalianAttribute($value)
     {
         return Carbon::create($value)->format('d-M-Y');

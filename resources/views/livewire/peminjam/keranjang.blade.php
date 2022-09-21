@@ -28,6 +28,7 @@
 
     <div class="row">
         <div class="col-md-12">
+            @if ($keranjang->status == 1 )
              <table class="table table-hover text-nowrap">
                 <thead>
                 <tr>
@@ -36,31 +37,34 @@
                     <th>Penulis</th>
                     <th>Rak</th>
                     <th>Baris</th>
-                    @if (!$keranjang->tanggal_pinjam)
-                        <th></th>
-                    @endif   
+                    <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($keranjang->detail_peminjaman as $item)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->buku->judul}}</td>
-                            <td>{{$item->buku->penulis}}</td>
-                            <td>{{$item->buku->rak->rak}}</td>
-                            <td>{{$item->buku->rak->baris}}</td>
-                            <td>
-                                @if (!$keranjang->tanggal_pinjam)
-                                    <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>
-                                @endif       
-                            </td>
+                            @if ($keranjang->status == 1 )
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->buku->judul}}</td>
+                                <td>{{$item->buku->penulis}}</td>
+                                <td>{{$item->buku->rak->rak}}</td>
+                                <td>{{$item->buku->rak->baris}}</td>
+                                <td>
+                                    {{-- @if (!$keranjang->tanggal_pinjam) --}}
+                                        <button wire:click="hapus({{$keranjang->id}}, {{$item->id}})" class="btn btn-sm btn-danger">Hapus</button>
+                                    {{-- @endif --}}
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            @else
+            <center>Data kosong</center>
+             @endif
             @if (!$keranjang->tanggal_pinjam)
                  <button wire:click="hapusMasal" class="btn btn-sm btn-danger">Hapus Masal</button>
-            @endif        
+            @endif
         </div>
     </div>
 </div>

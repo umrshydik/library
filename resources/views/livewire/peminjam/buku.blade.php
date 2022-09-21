@@ -21,7 +21,7 @@
     </div>
 
     @if ($detail_buku)
-        
+
         <div class="row">
             <div class="col-md-4">
                 <img src="/storage/{{$buku->sampul}}" alt="{{$buku->judul}}" width="300" height="400">
@@ -67,14 +67,14 @@
                   </tbody>
                 </table>
 
-                <button wire:click="keranjang({{$buku->id}})" class="btn btn-success">Keranjang</button>
+                <button wire:click="keranjang({{$buku->id}})" class="btn btn-success">Masukan ke Keranjang</button>
             </div>
         </div>
 
     @else
-    
+
         @if ($buku->isNotEmpty())
-    
+
             <div class="row">
                 @foreach ($buku as $item)
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -101,5 +101,5 @@
         @endif
 
     @endif
-    
+
 </div>

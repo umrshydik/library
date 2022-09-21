@@ -31,6 +31,9 @@
 - email: peminjam@gmail.com
 - Password: 12345678
 
+- email: wisnu@gmail.com
+- password: 12345678
+
 ## Buka di kode editor
 
 
