@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Petugas;
 
+use App\Exports\PeminjamanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Peminjaman;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -71,6 +73,11 @@ class Transaksi extends Component
 
         $peminjaman->update($data);
         session()->flash('sukses', 'Buku berhasil dikembalikan.');
+    }
+
+    public function export()
+    {
+        return Excel::download(new PeminjamanExport, 'ReportPeminjaman.xlsx');
     }
 
     public function render()

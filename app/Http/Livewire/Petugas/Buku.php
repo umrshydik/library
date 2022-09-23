@@ -11,6 +11,8 @@ use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BukuExport;
 
 class Buku extends Component
 {
@@ -167,6 +169,11 @@ class Buku extends Component
         $this->resetPage();
     }
 
+    public function export()
+    {
+        return Excel::download(new BukuExport, 'ReportBuku.xlsx');
+    }
+
     public function render()
     {
         if ($this->search) {
@@ -174,7 +181,7 @@ class Buku extends Component
         } else {
             $buku = ModelsBuku::latest()->paginate(5);
         }
-        
+
         return view('livewire.petugas.buku', compact('buku'));
     }
 
@@ -195,5 +202,6 @@ class Buku extends Component
         unset($this->rak_id);
         unset($this->penerbit_id);
         unset($this->kategori_id);
+        unset($this->export);
     }
 }

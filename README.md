@@ -85,6 +85,12 @@ php artisan migrate --seed
 php artisan storage:link
 ```
 
+## Buat export excel
+
+```bash
+composer require maatwebsite/excel
+```
+
 ## Jalankan Serve
 
 ```bash

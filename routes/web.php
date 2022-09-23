@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/buku', BukuController::class);
         Route::get('/transaksi', TransaksiController::class);
         Route::get('/chart', ChartController::class);
+        Route::get('/buku_export',[BukuController::class, 'get_buku_data'])->name('buku.export');
     });
 
     // role peminjam

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Exports\AnggotaExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\User as ModelsUser;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -35,13 +37,13 @@ class User extends Component
         $this->format();
         $this->admin = true;
     }
-  
+
     public function petugas()
     {
         $this->format();
         $this->petugas = true;
     }
-  
+
     public function peminjam()
     {
         $this->format();
@@ -56,7 +58,7 @@ class User extends Component
     public function store()
     {
         $this->validate();
-        
+
         $user = ModelsUser::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -78,6 +80,11 @@ class User extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function export()
+    {
+        return Excel::download(new AnggotaExport, 'ReportAnggota.xlsx');
     }
 
     public function render()
@@ -103,7 +110,7 @@ class User extends Component
                 $user = ModelsUser::paginate(5);
             }
         }
-        
+
         return view('livewire.admin.user', compact('user'));
     }
 
@@ -117,5 +124,6 @@ class User extends Component
         unset($this->email);
         unset($this->password);
         unset($this->password_confirmation);
+        unset($this->export);
     }
 }
