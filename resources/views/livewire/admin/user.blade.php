@@ -17,9 +17,7 @@
             @if ($admin || $petugas || $peminjam)
                  <span wire:click="create" class="btn btn-sm btn-primary">Tambah</span>
             @endif
-            @if ($format)
                 <span wire:click="export" class="btn btn-sm btn-warning">Export</span>
-            @endif
 
              <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
