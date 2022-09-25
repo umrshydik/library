@@ -38,8 +38,9 @@
                     <th>Nama Peminjam</th>
                     <th>Buku</th>
                     <th>Lokasi</th>
-                    <th>Tanggal Pinjam</th>
-                    <th>Tanggal Kembali</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Tanggal Aktual Pengembalian</th>
                     <th>Status</th>
                    @if (!$selesai_dipinjam)
                         <th width="15%">Aksi</th>
@@ -49,25 +50,26 @@
                 <tbody>
                 @foreach ($transaksi as $item)
                     <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$item->kode_pinjam}}</td>
-                        <td>{{$item->users->name}}</td>
+                        <td>{{$loop->iteration ?? '-'}}</td>
+                        <td>{{$item->kode_pinjam ?? '-'}}</td>
+                        <td>{{$item->users->name ?? '-'}}</td>
                         <td>
                             <ul>
                                 @foreach ($item->detail_peminjaman as $detail_peminjaman)
-                                <li>{{$detail_peminjaman->buku->judul}}</li>
+                                <li>{{$detail_peminjaman->buku->judul ?? '-'}}</li>
                                 @endforeach
                             </ul>
                         </td>
                        <td>
                             <ul>
                                 @foreach ($item->detail_peminjaman as $detail_peminjaman)
-                                <li>{{$detail_peminjaman->buku->rak->lokasi}}</li>
+                                <li>{{$detail_peminjaman->buku->rak->lokasi ?? '-'}}</li>
                                 @endforeach
                             </ul>
                         </td>
-                        <td>{{$item->tanggal_pinjam}}</td>
-                        <td>{{$item->tanggal_kembali}}</td>
+                        <td>{{$item->tanggal_pinjam ?? '-'}}</td>
+                        <td>{{$item->tanggal_kembali ?? '-'}}</td>
+                        <td>{{$item->tanggal_pengembalian ?? '-'}}</td>
                         <td>
                             @if ($item->status == 1)
                                 <span class="badge bg-indigo">Belum Dipinjam</span>

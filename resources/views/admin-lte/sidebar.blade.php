@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-header">MASTER</li>
-        
+
           <li class="nav-item">
             <a href="#" class="nav-link @yield('active-data-master')">
               <i class="nav-icon fas fa-copy"></i>
@@ -77,15 +77,15 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="/chart" class="nav-link @yield('active-chart')">
               <i class="fas fa-chart-bar"></i>
               <p>
                 Chart
               </p>
             </a>
-          </li>
-         
+          </li> --}}
+
           @role('admin')
               <li class="nav-header">ADMIN</li>
 

@@ -11,7 +11,7 @@
         <div class="card-header">
         <span wire:click="create" class="btn btn-sm btn-primary">Tambah</span>
 
-      
+
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                 <input wire:model="search" type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -39,7 +39,7 @@
                         @foreach ($kategori as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$item->nama}}</td>
+                                <td>{{$item->nama ?? '-'}}</td>
                                 <td>
                                     <div class="btn-group">
                                         <span wire:click="edit({{$item->id}})" class="btn btn-sm btn-primary mr-2">Edit</span>

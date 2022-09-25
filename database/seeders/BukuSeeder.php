@@ -25,5 +25,16 @@ class BukuSeeder extends Seeder
             'rak_id' => 7,
             'stok' => 10
         ]);
+
+        Buku::create([
+            'judul' => 'Hujan',
+            'slug' => Str::slug('mantapu'),
+            'sampul' => 'buku/hujan.jpg',
+            'penulis' => 'Tereliye',
+            'penerbit_id' => 2,
+            'kategori_id' => 3,
+            'rak_id' => 7,
+            'stok' => 10
+        ]);
     }
 }

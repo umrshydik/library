@@ -45,9 +45,9 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td><img src="/storage/{{ $item->sampul }}" alt="{{ $item->judul }}" width="60"
                                             height="80"></td>
-                                    <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->penulis }}</td>
-                                    <td>{{ $item->kategori->nama }}</td>
+                                    <td>{{ $item->judul ?? '-'}}</td>
+                                    <td>{{ $item->penulis ?? '-' }}</td>
+                                    <td>{{ $item->kategori->nama ?? '-'}}</td>
                                     <td>
                                         <div class="btn-group">
                                             <span wire:click="show({{ $item->id }})"
