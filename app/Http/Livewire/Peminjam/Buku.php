@@ -60,13 +60,13 @@ class Buku extends Component
                 $peminjaman_lama = DB::table('peminjaman')
                     ->join('detail_peminjaman', 'peminjaman.id', '=', 'detail_peminjaman.peminjaman_id')
                     ->where('peminjam_id', auth()->user()->id)
-                    ->where('status', '!=', 2)
+                    ->where('status', '!=', 3)
                     ->get();
 
                 // jumlah maksimal 2
-                if ($peminjaman_lama->count() == 2) {
-                    session()->flash('gagal', 'Buku yang dipinjam maksimal 2');
-                } else {
+                // if ($peminjaman_lama->count() == 2) {
+                //     session()->flash('gagal', 'Buku yang dipinjam maksimal 2');
+                // } else {
 
                     // peminjaman belum ada isinya
                     if ($peminjaman_lama->count() == 0) {
@@ -74,8 +74,8 @@ class Buku extends Component
                             'kode_pinjam' => random_int(100000000, 999999999),
                             'peminjam_id' => auth()->user()->id,
                             'status' => 1,
-                            'tanggal_pinjam' => Carbon::now(),
-                            'tanggal_kembali' => Carbon::now()->addDays(7)
+                            // 'tanggal_pinjam' => Carbon::now(),
+                            // 'tanggal_kembali' => Carbon::now()->addDays(7)
                         ]);
 
                         DetailPeminjaman::create([
@@ -103,7 +103,7 @@ class Buku extends Component
 
                     }
 
-                }
+                // }
 
             } else {
                 session()->flash('gagal', 'Role user anda bukan peminjam');

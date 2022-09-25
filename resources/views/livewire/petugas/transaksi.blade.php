@@ -69,7 +69,11 @@
                         </td>
                         <td>{{$item->tanggal_pinjam ?? '-'}}</td>
                         <td>{{$item->tanggal_kembali ?? '-'}}</td>
-                        <td>{{$item->tanggal_pengembalian ?? '-'}}</td>
+                        @if ($item->tanggal_pengembalian !== null)
+                            <td>{{$item->tanggal_pengembalian}}</td>
+                        @else
+                            <td>-</td>
+                        @endif
                         <td>
                             @if ($item->status == 1)
                                 <span class="badge bg-indigo">Belum Dipinjam</span>

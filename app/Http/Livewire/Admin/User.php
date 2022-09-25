@@ -14,8 +14,8 @@ class User extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $admin, $petugas, $peminjam, $search;
-    public $create, $name, $email, $password, $password_confirmation;
+    public $admin, $petugas, $peminjam, $search, $user_id;
+    public $create, $delete, $name, $email, $password, $password_confirmation;
 
     protected $validationAttributes = [
         'name' => 'nama',
@@ -82,6 +82,22 @@ class User extends Component
         $this->resetPage();
     }
 
+    public function delete(ModelsUser $user)
+    {
+        $this->format();
+
+        $this->delete = true;
+        $this->user_id = $user->id;
+    }
+
+    public function destroy(ModelsUser $user)
+    {
+        $user->delete();
+
+        session()->flash('sukses', 'Data berhasil dihapus.');
+        $this->format();
+    }
+
     public function export()
     {
         return Excel::download(new AnggotaExport, 'ReportAnggota.xlsx');
@@ -120,10 +136,12 @@ class User extends Component
         $this->petugas = false;
         $this->peminjam = false;
         unset($this->create);
+        unset($this->delete);
         unset($this->name);
         unset($this->email);
         unset($this->password);
         unset($this->password_confirmation);
         unset($this->export);
+        unset($this->user_id);
     }
 }

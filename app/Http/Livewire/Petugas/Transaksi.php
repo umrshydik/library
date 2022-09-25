@@ -44,7 +44,9 @@ class Transaksi extends Component
 
         $peminjaman->update([
             'petugas_pinjam' => auth()->user()->id,
-            'status' => 2
+            'status' => 2,
+            'tanggal_pinjam' => Carbon::now(),
+            'tanggal_kembali' => Carbon::now()->addDays(7)
         ]);
 
         session()->flash('sukses', 'Buku berhasil dipinjam.');

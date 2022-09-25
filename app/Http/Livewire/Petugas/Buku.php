@@ -149,6 +149,7 @@ class Buku extends Component
 
     public function delete(ModelsBuku $buku)
     {
+        dd($buku);
         $this->format();
 
         $this->delete = true;

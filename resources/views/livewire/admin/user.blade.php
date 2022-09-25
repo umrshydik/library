@@ -56,6 +56,12 @@
                                 <span class="badge bg-fuchsia">Peminjam</span>
                             @endif
                         </td>
+                        <td>
+                            <div class="btn-group">
+                                <span wire:click="delete({{ $item->id }})"
+                                    class="btn btn-sm btn-danger">Hapus</span>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
