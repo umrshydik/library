@@ -66,6 +66,7 @@ class Buku extends Component
             'judul' => $this->judul,
             'penulis' => $this->penulis,
             'stok' => $this->stok,
+            'total_stok' => $this->stok,
             'kategori_id' => $this->kategori_id,
             'rak_id' => $this->rak_id,
             'penerbit_id' => $this->penerbit_id,
@@ -85,6 +86,7 @@ class Buku extends Component
         $this->sampul = $buku->sampul;
         $this->penulis = $buku->penulis;
         $this->stok = $buku->stok;
+        $this->total_stok = $buku->total_stok;
         $this->kategori = $buku->kategori->nama;
         $this->penerbit = $buku->penerbit->nama;
         $this->rak = $buku->rak->rak;
@@ -100,6 +102,7 @@ class Buku extends Component
         $this->judul = $buku->judul;
         $this->penulis = $buku->penulis;
         $this->stok = $buku->stok;
+        $this->stok = $buku->total_stok;
         $this->kategori_id = $buku->kategori_id;
         $this->rak_id = $buku->rak_id;
         $this->penerbit_id = $buku->penerbit_id;
@@ -137,6 +140,7 @@ class Buku extends Component
             'judul' => $this->judul,
             'penulis' => $this->penulis,
             'stok' => $this->stok,
+            'total_stok' => $this->stok,
             'kategori_id' => $this->kategori_id,
             'rak_id' => $this->rak_id,
             'penerbit_id' => $this->penerbit_id,

@@ -16,7 +16,8 @@ class BukuExport implements FromCollection, WithHeadings
             'No',
             'Judul',
             'Penulis',
-            'stok',
+            'Total Buku',
+            'Buku Tersedia',
             'created_at',
             'updated_at'
         ];
@@ -27,6 +28,7 @@ class BukuExport implements FromCollection, WithHeadings
             'id',
             'judul',
             'penulis',
+            'total_stok',
             'stok',
             'created_at',
             'updated_at']);

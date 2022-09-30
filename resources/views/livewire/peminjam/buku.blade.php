@@ -60,7 +60,7 @@
                       <td>{{$buku->rak->baris}}</td>
                     </tr>
                     <tr>
-                      <th>Stok</th>
+                      <th>Jumlah Buku Tersedia</th>
                       <td>:</td>
                       <td>{{$buku->stok}}</td>
                     </tr>

@@ -16,7 +16,7 @@
                              </div>
                          </div>
                          <div class="col-md-7">
-                             <table class="table text-nowrap">                    
+                             <table class="table text-nowrap">
                                 <tbody>
                                     <tr>
                                         <th>Judul</th>
@@ -49,7 +49,12 @@
                                         <td>{{$baris == 0 ? 'none' : $baris}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Stok</th>
+                                        <th>Total Buku</th>
+                                        <td>:</td>
+                                        <td>{{$total_stok}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Buku Tersedia</th>
                                         <td>:</td>
                                         <td>{{$stok}}</td>
                                     </tr>

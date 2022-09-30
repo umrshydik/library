@@ -10,7 +10,7 @@ class Buku extends Model
     use HasFactory;
 
     protected $table = 'buku';
-    protected $fillable = ['judul', 'stok', 'sampul', 'slug', 'penulis', 'kategori_id', 'rak_id', 'penerbit_id'];
+    protected $fillable = ['judul', 'stok', 'sampul', 'slug', 'penulis', 'kategori_id', 'rak_id', 'penerbit_id', 'total_stok'];
 
     public function kategori()
     {
@@ -37,7 +37,7 @@ class Buku extends Model
     {
         $this->attributes['judul'] = ucfirst($value);
     }
-   
+
     public function setPenulisAttribute($value)
     {
         $this->attributes['penulis'] = ucfirst($value);

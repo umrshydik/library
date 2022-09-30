@@ -61,6 +61,7 @@ class Buku extends Component
                     ->join('detail_peminjaman', 'peminjaman.id', '=', 'detail_peminjaman.peminjaman_id')
                     ->where('peminjam_id', auth()->user()->id)
                     ->where('status', '!=', 3)
+                    ->where('status', '!=', 2)
                     ->get();
 
                 // jumlah maksimal 2
@@ -70,6 +71,9 @@ class Buku extends Component
 
                     // peminjaman belum ada isinya
                     if ($peminjaman_lama->count() == 0) {
+                        if ($buku->stok == 0){
+                            session()->flash('gagal', 'Buku tidak tersedia');
+                        }else{
                         $peminjaman_baru = Peminjaman::create([
                             'kode_pinjam' => random_int(100000000, 999999999),
                             'peminjam_id' => auth()->user()->id,
@@ -84,7 +88,7 @@ class Buku extends Component
                         ]);
 
                         $this->emit('tambahKeranjang');
-                        session()->flash('sukses', 'Buku berhasil ditambahkan ke dalam keranjang');
+                        session()->flash('sukses', 'Buku berhasil ditambahkan ke dalam keranjang');}
                     } else {
 
                         // buku tidak boleh sama
