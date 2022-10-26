@@ -75,6 +75,29 @@
         </div> --}}
 
         <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5>Peminjam Rajin</h5>
+                     <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Nama</th>
+                          <th>Meminjam Buku Sebanyak</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($siswa_rajin as $item)
+                            <tr>
+                            <td>{{$item->name}}</td>
+                            <td>{{$peminjam_rajin}}</td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
           <div class="col-md-6">
             <div class="card">
               <div class="card-body">
@@ -100,6 +123,7 @@
               </div>
             </div>
           </div>
+
 
           <div class="col-md-6">
             <div class="card">
@@ -158,21 +182,21 @@
                 <h5>Sedang Dipinjam</h5>
                  <table class="table table-bordered">
                   <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Kode Pinjam</th>
-                      <th>Tanggal Pinjam</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($sedang_dipinjam as $item)
                         <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$item->kode_pinjam}}</td>
-                        <td>{{$item->tanggal_pinjam}}</td>
-                      </tr>
-                    @endforeach
-                  </tbody>
+                            <th style="width: 10px">#</th>
+                            <th>Kode Pinjam</th>
+                            <th>Tanggal Pinjam</th>
+                        </tr>
+                  </thead>
+                    <tbody>
+                        @foreach ($sedang_dipinjam as $item)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->kode_pinjam}}</td>
+                                <td>{{$item->tanggal_pinjam}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
               </div>
             </div>

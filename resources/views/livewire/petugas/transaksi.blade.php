@@ -41,6 +41,7 @@
                     <th>Tanggal Peminjaman</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Tanggal Aktual Pengembalian</th>
+                    <th>Denda</th>
                     <th>Status</th>
                    @if (!$selesai_dipinjam)
                         <th width="15%">Aksi</th>
@@ -69,7 +70,9 @@
                         </td>
                         <td>{{$item->tanggal_pinjam ?? '-'}}</td>
                         <td>{{$item->tanggal_kembali ?? '-'}}</td>
-                        <td>{{$item->tanggal_pengembalian ?? '-'}}<td>
+                        <td>{{$item->tanggal_pengembalian ?? '-'}}</td>
+                        <td>{{$item->denda ?? 'Rp.0'}}</td>
+                        <td>
                             @if ($item->status == 1)
                                 <span class="badge bg-indigo">Belum Dipinjam</span>
                             @elseif ($item->status == 2)

@@ -32,7 +32,7 @@ class Peminjaman extends Model
     // accesor
     public function getDendaAttribute($value)
     {
-        return $value ? "Rp. {$value}" : '-' ;
+        return $value ? "Rp. {$value}" : '0' ;
     }
 
     public function getTanggalPinjamAttribute($value)

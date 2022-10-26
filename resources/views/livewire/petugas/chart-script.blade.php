@@ -1,4 +1,4 @@
-{{-- <script>
+<script>
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -52,4 +52,4 @@ Livewire.on('ubahBulanTahun', (count, tanggal_pengembalian) => {
         }
     });
 })
-</script> --}}
+</script>
