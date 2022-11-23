@@ -31,7 +31,7 @@
 - email: peminjam@gmail.com
 - Password: 12345678
 
-- email: wisnu@gmail.com
+- email: umar@gmail.com
 - password: 12345678
 
 ## Buka di kode editor
@@ -73,10 +73,10 @@ DB_PASSWORD=
 php artisan key:generate
 ```
 
-## Jalankan migrate dan seeder
+## Buat Database
 
 ```bash
-php artisan migrate --seed
+import ke sql library.sql
 ```
 
 ## Buat Storage Link

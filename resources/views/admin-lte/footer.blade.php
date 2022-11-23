@@ -1,5 +1,5 @@
 <footer class="main-footer">
     <div class="row justify-content-center">
-      <strong>Copyright &copy; Wisnu 2022</strong>
+      <strong>Copyright &copy; umrshydik 2022</strong>
     </div>
 </footer>

@@ -382,7 +382,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (1, 'Admin', 'admin@gmail.com', '2022-09-20 00:10:47', '$2y$10$zLHK6vYKZHxWA.3UCqif6.ORkQynIKKjhNvPiylwqKd90NkbbPJwK', NULL, '2022-09-20 00:10:47', '2022-09-20 00:10:47'),
 (2, 'Petugas', 'petugas@gmail.com', '2022-09-20 00:10:47', '$2y$10$VKOlza8POg30PYx015HD5eV8eDovp8L4IsoRKqITDnNBYt2KGz04O', NULL, '2022-09-20 00:10:47', '2022-09-20 00:10:47'),
 (3, 'Peminjam', 'peminjam@gmail.com', '2022-09-20 00:10:47', '$2y$10$1ZKZMR..1qfilq9ZpfgOEOAz4pEobqjWPgnfVi4xmTPdn.dxhLmVG', NULL, '2022-09-20 00:10:47', '2022-09-20 00:10:47'),
-(4, 'Wisnu saputra', 'wisnu@gmail.com', '2022-09-20 00:10:47', '$2y$10$HxxIA0vE.zePzy.AFkKmueZhXlTn1TZVisPrC6/EAegQP.X9hmzva', NULL, '2022-09-20 00:10:47', '2022-09-20 00:10:47'),
+(4, 'Ahmad umar', 'umar@gmail.com', '2022-09-20 00:10:47', '$2y$10$HxxIA0vE.zePzy.AFkKmueZhXlTn1TZVisPrC6/EAegQP.X9hmzva', NULL, '2022-09-20 00:10:47', '2022-09-20 00:10:47'),
 (6, 'Natan', 'natan@gmail.com', NULL, '$2y$10$lsWE4pv6AQ2ENREX1r.Egu7I8nY1fgINLEUiwlTgpDcDcj8e8NL5i', NULL, '2022-09-20 01:09:05', '2022-09-20 01:09:05'),
 (7, 'Hendrik', 'hendrik@gmail.com', NULL, '$2y$10$I06CMLP6JQqcVVpi3r7vveA5kvpzoS1UWvDBX20yElroOIsn3DJnS', NULL, '2022-09-24 21:29:47', '2022-09-24 21:29:47');
 
